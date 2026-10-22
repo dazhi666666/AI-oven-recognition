@@ -1,0 +1,18 @@
+# Pinned team environment, verified 2026-10-21 on Windows, Python 3.11.5.
+# Keep this file ASCII-only: pip on Chinese Windows may decode it as GBK.
+# Install:
+#   python -m pip install -r requirements-lock.txt
+#   python -m pip install -e . --no-deps
+
+# runtime
+numpy==2.3.5
+opencv-python-headless==4.13.0.92
+PyYAML==6.0.3
+
+# tests
+pytest==9.0.3
+iniconfig==2.3.1
+packaging==26.3
+pluggy==1.7.0
+Pygments==2.21.0
+colorama==0.4.6; sys_platform == "win32"
