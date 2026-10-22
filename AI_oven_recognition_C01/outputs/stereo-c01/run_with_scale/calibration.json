@@ -1,0 +1,18 @@
+{
+  "calibration_id": "ARTIFICIAL-slanted-plane-v1",
+  "image_size": [
+    320,
+    240
+  ],
+  "fx_px": 700.0,
+  "baseline_m": 0.1,
+  "doff_px": 2.0,
+  "source": "KBD",
+  "is_rectified": true,
+  "frame": "left_rectified_camera: +X right, +Y down, +Z forward; depth = axial Z (m)",
+  "min_usable_disparity_px": 2.001,
+  "depth_model": "Z = fx * B / (d - doff)",
+  "extra": {
+    "note": "人工构造标定：非真实相机参数，仅用于打通换算链路"
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "cases": [
+    {
+      "case": "左右图尺寸不一致",
+      "expected_code": "E_SIZE_MISMATCH",
+      "raised": "StereoInputError",
+      "code": "E_SIZE_MISMATCH",
+      "message": "左右图尺寸不一致：left (240, 303) vs right (240, 320)；未校正/裁切不一致时不得直接匹配",
+      "passed": true
+    },
+    {
+      "case": "图像不可读(路径不存在)",
+      "expected_code": "E_READ_FAIL",
+      "raised": "StereoInputError",
+      "code": "E_READ_FAIL",
+      "message": "图像不存在：outputs/stereo-c01/no_such.png",
+      "passed": true
+    },
+    {
+      "case": "非法搜索参数 num_disparities=30（非16倍数）",
+      "expected_code": "E_INVALID_SEARCH_PARAMS",
+      "raised": "StereoConfigError",
+      "code": "E_INVALID_SEARCH_PARAMS",
+      "message": "num_disparities 必须为 16 的整数倍（SGBM 要求），收到 30",
+      "passed": true
+    },
+    {
+      "case": "非法搜索参数 blockSize 偶数",
+      "expected_code": "E_INVALID_SEARCH_PARAMS",
+      "raised": "StereoConfigError",
+      "code": "E_INVALID_SEARCH_PARAMS",
+      "message": "block_size 必须为 >=3 的奇数，收到 4",
+      "passed": true
+    },
+    {
+      "case": "标定未标记已校正",
+      "expected_code": "E_NOT_RECTIFIED",
+      "raised": "StereoCalibrationError",
+      "code": "E_NOT_RECTIFIED",
+      "message": "标定未标记为已校正（is_rectified=False）：不得作为已校正输入强行换算，请向 B 索取校正后的 P1/P2 与校正状态",
+      "passed": true
+    },
+    {
+      "case": "标定分辨率与图像不一致",
+      "expected_code": "E_CALIB_SIZE_MISMATCH",
+      "raised": "StereoCalibrationError",
+      "code": "E_CALIB_SIZE_MISMATCH",
+      "message": "标定分辨率与图像尺寸不一致：标定 (640, 480) vs 图像 (320, 240)；分辨率不符时内参与主点差都不可移植",
+      "passed": true
+    },
+    {
+      "case": "非法标定 fx<=0",
+      "expected_code": "E_INVALID_CALIBRATION",
+      "raised": "StereoCalibrationError",
+      "code": "E_INVALID_CALIBRATION",
+      "message": "fx_px 必须为正有限值，收到 -700.0",
+      "passed": true
+    },
+    {
+      "case": "非法标定 baseline<=0",
+      "expected_code": "E_INVALID_CALIBRATION",
+      "raised": "StereoCalibrationError",
+      "code": "E_INVALID_CALIBRATION",
+      "message": "baseline_m 必须为正有限值，收到 0.0",
+      "passed": true
+    }
+  ],
+  "all_passed": true
+}

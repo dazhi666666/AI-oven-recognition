@@ -1,0 +1,5 @@
+# C-01 运行与测试依赖（本机验证版本）
+# Python 3.13.13
+numpy==2.5.4
+opencv-python-headless==5.0.0.93
+pytest==9.1.1

@@ -1,0 +1,45 @@
+{
+  "provenance": "artificial_test_pattern",
+  "kind": "slanted_plane",
+  "height": 240,
+  "width": 320,
+  "d0_px": 16.0,
+  "slope_px_per_px": 0.1,
+  "d_gt_range_px": [
+    16.0,
+    47.900001525878906
+  ],
+  "note": "人工构造：由解析线性视差扭曲纹理得到；不含真实相机噪声、曝光差异或标定误差，不能用于任何精度达标声明",
+  "calibration_ARTIFICIAL": {
+    "calibration_id": "ARTIFICIAL-slanted-plane-v1",
+    "fx_px": 700.0,
+    "baseline_m": 0.1,
+    "cx_left": 160.5,
+    "cx_right": 158.5
+  },
+  "config": {
+    "min_disparity": 0,
+    "num_disparities": 64,
+    "block_size": 5,
+    "p1": 200,
+    "p2": 800,
+    "disp12_max_diff": 1,
+    "uniqueness_ratio": 10,
+    "speckle_window_size": 100,
+    "speckle_range": 2,
+    "pre_filter_cap": 63,
+    "mode": "SGBM",
+    "name": "c01_default",
+    "version": "1.0.0",
+    "rationale": "C-01 最小基线：用于人工构造斜平面测试对（d_gt≈16..48 px）。numDisparities=64 覆盖 0..63，留出约 25% 余量；blockSize=5 与 P1/P2=200/800 为 OpenCV 常规 8 邻域设置（P1=8*bs^2, P2=32*bs^2）。",
+    "tags": {
+      "stage": "C-01",
+      "scope": "artificial_test_pattern"
+    },
+    "disparity_range": [
+      0,
+      64
+    ],
+    "config_id": "159f33d04b27fc6a"
+  }
+}

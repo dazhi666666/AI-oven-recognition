@@ -1,0 +1,7 @@
+d_px,d_minus_doff_px,z_hand_m,formula,role
+20.0,18.0,3.888889,"Z = fx*B/(d-doff), fx=700, B=0.1, doff=2.0",reference_conversion_check_only
+25.0,23.0,3.043478,"Z = fx*B/(d-doff), fx=700, B=0.1, doff=2.0",reference_conversion_check_only
+40.0,38.0,1.842105,"Z = fx*B/(d-doff), fx=700, B=0.1, doff=2.0",reference_conversion_check_only
+0.0,-2.0,,"Z = fx*B/(d-doff), fx=700, B=0.1, doff=2.0",reference_conversion_check_only
+1.0,-1.0,,"Z = fx*B/(d-doff), fx=700, B=0.1, doff=2.0",reference_conversion_check_only
+2.0,0.0,,"Z = fx*B/(d-doff), fx=700, B=0.1, doff=2.0",reference_conversion_check_only
