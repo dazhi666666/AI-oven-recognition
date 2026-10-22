@@ -1,0 +1,5 @@
+config_id: a02_height_grid_v1
+grid_shape: [60, 100]  # 格子数量 [行,列]，不是边界节点
+height_m: 0.02
+cell_area_m2: 0.000001
+invalid_cell: [0, 0]

@@ -1,0 +1,19 @@
+# 2026-10-22 官方公开资料初筛；仅供估算，不是标定值或采购决定。
+config_id: a01_candidates_v1
+distances_m: [0.3, 1.0, 1.5]
+image_sizes_px: [[320, 240], [160, 120]]  # 每只相机，不是左右拼接图尺寸
+relative_depth_error: 0.05
+doffs_px: 0.0  # 只用于选型估算，实测后必须换真实标定
+reference_design:
+  baseline_m: 0.07
+  horizontal_fov_deg: 70.0
+candidates:
+  - candidate_id: waveshare_imx219_83
+    baseline_m: 0.06
+    horizontal_fov_deg: 73.0
+    source: https://www.waveshare.com/IMX219-83-Stereo-Camera.htm
+  - candidate_id: waveshare_os02g10_usb_a
+    baseline_m: 0.062
+    horizontal_fov_deg: 84.0
+    source: https://www.waveshare.com/os02g10-stereo-usb-camera-a.htm
+    sensor_lifecycle_source: https://www.ovt.com/products/os02g10/
