@@ -30,3 +30,7 @@ edge/build/
 .idea/
 .DS_Store
 Thumbs.db
+
+# DeepWorks 本机状态与会话临时文件（不进 Git）
+.deepworks/
+.opencode/deepworks.json
