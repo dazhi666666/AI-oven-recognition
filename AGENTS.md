@@ -4,6 +4,16 @@
 
 项目背景见 [docs/项目说明.md](docs/项目说明.md)。共同约定和数据格式见 [docs/ai/00_共同约定与接口.md](docs/ai/00_共同约定与接口.md)，任务安排见 [docs/ai/01_任务规划.md](docs/ai/01_任务规划.md)，各岗位的任务细节见 `docs/ai/` 下的岗位说明。
 
+## 0. 动手前必读：项目规范
+
+写代码或提交前，先读 [docs/项目规范.md](docs/项目规范.md)。最重要的几条：
+
+- 代码放进统一结构：`src/oven_stereo/<模块>/`、`tests/<模块>/`、`configs/<模块>/`、`docs/<模块>/`。**不要新建顶层目录或"自包含交付包"。**
+- 用 `requirements-lock.txt` 的依赖版本，不另写 requirements、不换版本。
+- 模块之间用 `src/oven_stereo/contracts/` 里的数据格式；单位、视差、`doffs` 符号等约定见项目规范第 3 节。
+- 运行结果放 `results/`，数据放 `data/raw/`，都不提交。
+- 提交前在仓库根目录跑 `python -m pytest -q`，全部通过。
+
 ## 1. 工作开始前：先拉取上游更新
 
 每次开始任何任务之前，必须先同步远程仓库：
