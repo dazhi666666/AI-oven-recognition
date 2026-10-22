@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "sample_id": "middlebury2014_adirondack_perfect_native",
+  "source": "Middlebury",
+  "source_version": "2014/perfect",
+  "domain": "public",
+  "split": "development",
+  "conditions": {
+    "lighting": "default",
+    "steam": null,
+    "window_contamination": null,
+    "transparent_reflective": null,
+    "material": null,
+    "distance_bin": null,
+    "texture_bin": null
+  },
+  "left_path": "data/raw/middlebury/Adirondack-perfect/inputs/im0.png",
+  "right_path": "data/raw/middlebury/Adirondack-perfect/inputs/im1.png",
+  "image_size_px": [2880, 1988],
+  "rectified": true,
+  "calibration_id": "middlebury2014_adirondack_perfect_native_v1",
+  "calibration_path": "data/raw/middlebury/Adirondack-perfect/inputs/calib.txt",
+  "metric_depth_available": true,
+  "source_url": "https://vision.middlebury.edu/stereo/data/scenes2014/datasets/Adirondack-perfect/",
+  "license_url": "https://vision.middlebury.edu/stereo/data/",
+  "citation": "Scharstein et al., High-resolution stereo datasets with subpixel-accurate ground truth, GCPR 2014.",
+  "verified_on": "2026-10-22",
+  "assets": [
+    {
+      "path": "data/raw/middlebury/Adirondack-perfect/inputs/im0.png",
+      "url": "https://vision.middlebury.edu/stereo/data/scenes2014/datasets/Adirondack-perfect/im0.png",
+      "size_bytes": 6079855,
+      "sha256": "b322bad57398336a2730ad4363b267dff2324adcdf0b8aef2a01f931aeaf5ab9"
+    },
+    {
+      "path": "data/raw/middlebury/Adirondack-perfect/inputs/im1.png",
+      "url": "https://vision.middlebury.edu/stereo/data/scenes2014/datasets/Adirondack-perfect/im1.png",
+      "size_bytes": 6020197,
+      "sha256": "aeacdae282f68f20ea7175640e061ecddab686886b4a43fe5d4eff255f27beaa"
+    },
+    {
+      "path": "data/raw/middlebury/Adirondack-perfect/inputs/calib.txt",
+      "url": "https://vision.middlebury.edu/stereo/data/scenes2014/datasets/Adirondack-perfect/calib.txt",
+      "size_bytes": 213,
+      "sha256": "eface1c113178399b8fc62470244cf4baea03a41304fc55ade487505e31604fe"
+    }
+  ]
+}

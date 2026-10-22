@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "sample_id": "middlebury2014_adirondack_perfect_native",
+  "calibration_id": "middlebury2014_adirondack_perfect_native_v1",
+  "disparity_path": "data/raw/middlebury/Adirondack-perfect/reference/disp0.pfm",
+  "disparity_units": "px",
+  "depth_units": "m",
+  "source_url": "https://vision.middlebury.edu/stereo/data/scenes2014/datasets/Adirondack-perfect/disp0.pfm",
+  "verified_on": "2026-10-22",
+  "assets": [
+    {
+      "path": "data/raw/middlebury/Adirondack-perfect/reference/disp0.pfm",
+      "url": "https://vision.middlebury.edu/stereo/data/scenes2014/datasets/Adirondack-perfect/disp0.pfm",
+      "size_bytes": 22901783,
+      "sha256": "7f60d0734b9a00c8ac56db21a36a2193b67e4ddb02d84360c476c094574a03ff"
+    }
+  ]
+}

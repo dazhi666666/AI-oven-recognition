@@ -14,7 +14,14 @@ def load_gray(path: str | Path) -> np.ndarray:
     path = Path(path)
     if not path.is_file():
         raise FileNotFoundError(f"图像不存在：{path}")
-    image = cv2.imread(str(path), cv2.IMREAD_UNCHANGED)
+    # Windows 的 imread 对中文路径支持不完整，用 Python 读字节后解码。
+    encoded = np.frombuffer(path.read_bytes(), dtype=np.uint8)
+    if not encoded.size:
+        raise ValueError(f"图像文件为空：{path}")
+    try:
+        image = cv2.imdecode(encoded, cv2.IMREAD_UNCHANGED)
+    except cv2.error as exc:
+        raise ValueError(f"图像无法解码：{path}") from exc
     if image is None:
         raise ValueError(f"图像无法读取：{path}")
     if image.dtype != np.uint8:

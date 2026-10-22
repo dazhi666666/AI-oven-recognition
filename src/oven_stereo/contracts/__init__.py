@@ -2,5 +2,6 @@
 
 from .calibration import CalibrationError, RectifiedStereo
 from .results import DepthResult
+from .sample import ReferenceData, StereoSample
 
-__all__ = ["CalibrationError", "DepthResult", "RectifiedStereo"]
+__all__ = ["CalibrationError", "DepthResult", "RectifiedStereo", "ReferenceData", "StereoSample"]
