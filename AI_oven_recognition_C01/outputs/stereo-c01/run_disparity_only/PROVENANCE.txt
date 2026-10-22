@@ -1,6 +1,0 @@
-本目录由 stereo 模块（角色 C）C-01 链路生成。
-输入来源标记：artificial_test_pattern
-真实场景链路是否完整：False
-disparity_px.npy / depth_m.npy 中 NaN = 无效像素；
-有效位置以 *_valid_mask 为准，未做任何静默补全。
-预测链路未读取任何真值/参考数据（参考换算另见 stereo.reference）。
