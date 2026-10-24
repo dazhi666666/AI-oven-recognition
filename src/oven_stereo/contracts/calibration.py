@@ -24,6 +24,70 @@ class CalibrationError(ValueError):
 
 
 @dataclass(frozen=True)
+class PinholeIntrinsics:
+    """左相机针孔内参，供深度反投影到相机坐标系。"""
+
+    calibration_id: str
+    image_size: Tuple[int, int]  # (宽, 高)，像素
+    fx_px: float
+    fy_px: float
+    cx_px: float
+    cy_px: float
+
+    @classmethod
+    def from_matrix(
+        cls,
+        matrix: Sequence[Sequence[float]],
+        calibration_id: str,
+        image_size: Tuple[int, int],
+    ) -> "PinholeIntrinsics":
+        camera = np.asarray(matrix, dtype=np.float64)
+        if camera.shape != (3, 3) or not np.isfinite(camera).all():
+            raise CalibrationError("相机内参矩阵必须是有限的 3x3 矩阵")
+        intrinsics = cls(
+            calibration_id=calibration_id,
+            image_size=(int(image_size[0]), int(image_size[1])),
+            fx_px=float(camera[0, 0]),
+            fy_px=float(camera[1, 1]),
+            cx_px=float(camera[0, 2]),
+            cy_px=float(camera[1, 2]),
+        )
+        intrinsics.validate()
+        expected = np.array(
+            [[intrinsics.fx_px, 0.0, intrinsics.cx_px],
+             [0.0, intrinsics.fy_px, intrinsics.cy_px],
+             [0.0, 0.0, 1.0]],
+            dtype=np.float64,
+        )
+        if not np.allclose(camera, expected, atol=1e-9, rtol=0):
+            raise CalibrationError("相机内参矩阵必须符合无偏斜的针孔模型")
+        return intrinsics
+
+    def validate(self, image_size: Tuple[int, int] | None = None) -> None:
+        if not self.calibration_id:
+            raise CalibrationError("calibration_id 不能为空")
+        if len(self.image_size) != 2 or min(self.image_size) <= 0:
+            raise CalibrationError(f"image_size 必须是正的 (宽, 高)，收到 {self.image_size}")
+        for name, value in (
+            ("fx_px", self.fx_px), ("fy_px", self.fy_px),
+            ("cx_px", self.cx_px), ("cy_px", self.cy_px),
+        ):
+            if not math.isfinite(value):
+                raise CalibrationError(f"{name} 必须是有限值，收到 {value}")
+        if self.fx_px <= 0 or self.fy_px <= 0:
+            raise CalibrationError("fx_px 和 fy_px 必须大于 0")
+        if image_size is not None and tuple(image_size) != tuple(self.image_size):
+            raise CalibrationError(
+                f"标定分辨率 {tuple(self.image_size)} 与图像 {tuple(image_size)} 不一致"
+            )
+
+    def to_dict(self) -> dict:
+        data = asdict(self)
+        data["image_size"] = list(self.image_size)
+        return data
+
+
+@dataclass(frozen=True)
 class RectifiedStereo:
     calibration_id: str
     image_size: Tuple[int, int]  # (宽, 高)，像素

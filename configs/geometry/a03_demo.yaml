@@ -1,0 +1,10 @@
+config_id: a03_depth_geometry_v1
+image_size: [8, 6]  # [宽, 高]
+fx_px: 100.0
+fy_px: 80.0
+cx_px: 3.5
+cy_px: 2.5
+tray_depth_m: 1.0
+block_height_m: 0.2
+plane_max_rms_m: 1.0e-9
+negative_height_tolerance_m: 1.0e-9
