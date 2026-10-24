@@ -97,15 +97,20 @@ def support_plane_cell_areas(
     height, width = int(shape[0]), int(shape[1])
     intrinsics.validate(image_size=(width, height))
     normal = np.asarray(plane.normal_xyz, dtype=np.float64)
+    rows, cols = np.indices((height, width), dtype=np.float64)
+    ray_x = {
+        offset: (cols + offset - intrinsics.cx_px) / intrinsics.fx_px
+        for offset in (-0.5, 0.5)
+    }
+    ray_y = {
+        offset: (rows + offset - intrinsics.cy_px) / intrinsics.fy_px
+        for offset in (-0.5, 0.5)
+    }
+    ray_z = np.ones((height, width), dtype=np.float64)
 
     def intersect(col_offset: float, row_offset: float) -> tuple[np.ndarray, np.ndarray]:
-        rows, cols = np.indices((height, width), dtype=np.float64)
         rays = np.stack(
-            (
-                (cols + col_offset - intrinsics.cx_px) / intrinsics.fx_px,
-                (rows + row_offset - intrinsics.cy_px) / intrinsics.fy_px,
-                np.ones((height, width), dtype=np.float64),
-            ),
+            (ray_x[col_offset], ray_y[row_offset], ray_z),
             axis=2,
         )
         denominator = rays @ normal
